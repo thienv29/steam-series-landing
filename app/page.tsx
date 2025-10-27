@@ -46,7 +46,7 @@ useEffect(() => {
       </section>
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Video Giới Thiệu</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Video Giới thiệu tài nguyên mẫu</h2>
           <div className="relative aspect-video w-full max-w-4xl mx-auto">
             <video
               className="w-full h-full rounded-lg shadow-lg"
