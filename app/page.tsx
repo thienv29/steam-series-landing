@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react'
 import Hero from "@/components/hero"
 import BookCards from "@/components/book-cards"
@@ -5,23 +6,33 @@ import ComparisonTable from "@/components/comparison-table"
 import EnrollmentForm from "@/components/enrollment-form"
 
 export default function Home() {
-  useEffect(() => {
-    const sendHeight = () => {
-      const height = document.body.scrollHeight;
-      window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*');
-    };
+useEffect(() => {
+  const sendHeight = () => {
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage(
+      { type: 'adjustIframeHeight', height },
+      '*'
+    );
+  };
 
-    // Send height initially
-    sendHeight();
+  sendHeight();
 
-    // Send height on resize
-    const handleResize = () => sendHeight();
-    window.addEventListener('resize', handleResize);
+  // Resize events
+  const resizeObserver = new ResizeObserver(sendHeight);
+  resizeObserver.observe(document.documentElement);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  // DOM change events
+  const mutationObserver = new MutationObserver(sendHeight);
+  mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+  window.addEventListener('resize', sendHeight);
+
+  return () => {
+    window.removeEventListener('resize', sendHeight);
+    resizeObserver.disconnect();
+    mutationObserver.disconnect();
+  };
+}, []);
 
   return (
     <main className="min-h-screen bg-background">

@@ -22,6 +22,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans antialiased`}>
         {children}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.addEventListener('message', function (event) {
+              if (event.data?.type === 'adjustIframeHeight') {
+                const iframe = document.getElementById('iframe-certificate');
+                iframe.style.height = event.data.height + 'px';
+              }
+              if (event.data?.type === 'redirectParent') {
+                window.location.href = event.data.url;
+              }
+            });
+          `
+        }} />
         <Analytics />
       </body>
     </html>
