@@ -1,4 +1,15 @@
+"use client"
+
+import { useCallback } from "react"
+
 export default function Hero() {
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }, [])
+
   return (
     <section className="bg-white py-20 px-4">
       <div className="max-w-6xl mx-auto text-center">
@@ -9,12 +20,12 @@ export default function Hero() {
           Bộ sách STEAM SERIES FUN WITH MATH – FUN WITH SCIENCE dành cho học sinh Tiểu học – kết hợp giữa sách giấy và nền tảng học trực tuyến Digischool.vn
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#enrollment" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition">
+          <button onClick={() => scrollToSection("enrollment")} className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition">
             Khám phá ngay
-          </a>
-          <a href="#courses" className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition">
+          </button>
+          <button onClick={() => scrollToSection("courses")} className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition">
             Tìm hiểu thêm
-          </a>
+          </button>
         </div>
       </div>
     </section>
