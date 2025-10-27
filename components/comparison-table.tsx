@@ -10,7 +10,7 @@ export default function ComparisonTable() {
   ]
 
   return (
-    <section id="comparison" className="relative py-20 px-4 bg-muted/30 overflow-hidden">
+    <section id="comparison" className="relative py-20 px-4 bg-white  overflow-hidden">
       <img src="/izzy-front-view.png" alt="Izzy front view" className="absolute top-10 left-10 w-40 h-auto -rotate-6 hidden lg:block izzy-sway" />
       <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">So sánh Gói Dịch vụ</h2>

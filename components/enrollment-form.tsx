@@ -26,7 +26,7 @@ export default function EnrollmentForm() {
   }, [])
 
   return (
-    <section id="enrollment" className="relative py-20 px-4 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+    <section id="enrollment" className="relative py-20 px-4 bg-white  overflow-hidden">
       <img src="/izzy-fun.png" alt="Izzy having fun" className="absolute top-10 right-10 w-40 h-auto rotate-12 hidden lg:block izzy-float" />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
