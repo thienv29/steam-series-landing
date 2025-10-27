@@ -1,5 +1,5 @@
 import Hero from "@/components/hero"
-import CourseLevels from "@/components/course-levels"
+import BookCards from "@/components/book-cards"
 import ComparisonTable from "@/components/comparison-table"
 import EnrollmentForm from "@/components/enrollment-form"
 
@@ -7,7 +7,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Hero />
-      <CourseLevels />
+      <section id="courses" className="relative py-12 md:py-20 bg-muted/30 overflow-hidden">
+        <img src="/izzy-graduation.png" alt="Izzy graduation" className="absolute top-10 right-10 w-40 h-auto rotate-12 hidden lg:block izzy-pulse" />
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-5xl md:text-4xl book-series-title mb-12">STEAM SERIES FUN WITH MATH - FUN WITH SCIENCE</h2>
+          <BookCards />
+        </div>
+      </section>
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Video Giới Thiệu</h2>

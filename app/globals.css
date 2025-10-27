@@ -237,3 +237,17 @@ html {
 .izzy-fade-in {
   animation: fadeIn 1s ease-in-out forwards;
 }
+
+/* Outstanding book series title styling */
+.book-series-title {
+  background: linear-gradient(45deg, #5f2164, #8b4a9e, #c4a5d8, #e8d5f2);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: transparent;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(95, 33, 100, 0.3);
+  letter-spacing: 1px;
+}
