@@ -1,6 +1,39 @@
-/* Import Google Fonts for custom typography */
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap");
+/* Local font declarations */
+@font-face {
+  font-family: 'Fredoka';
+  src: url('/font/iCielPony.ttf') format('truetype');
+  font-weight: 400 600 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/font/VLAmpleSoft.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/font/VLAmpleSoft-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/font/VLAmpleSoftBold-Bold.ttf') format('truetype');
+  font-weight: 600 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  src: url('/font/fa-solid-900.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
