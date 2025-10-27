@@ -1,9 +1,28 @@
+import { useEffect } from 'react'
 import Hero from "@/components/hero"
 import BookCards from "@/components/book-cards"
 import ComparisonTable from "@/components/comparison-table"
 import EnrollmentForm from "@/components/enrollment-form"
 
 export default function Home() {
+  useEffect(() => {
+    const sendHeight = () => {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*');
+    };
+
+    // Send height initially
+    sendHeight();
+
+    // Send height on resize
+    const handleResize = () => sendHeight();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <main className="min-h-screen bg-background">
       <Hero />
