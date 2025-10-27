@@ -53,16 +53,7 @@ export default function ComparisonTable() {
                   </td>
                 </tr>
               ))}
-              <tr className="border-b border-border hover:bg-muted/50 transition">
-                <td className="py-4 px-6 text-foreground font-semibold">CHI PHÍ</td>
-                <td className="py-4 px-6 text-center text-foreground">100.000 VNĐ/ THÁNG</td>
-                <td className="py-4 px-6 text-center text-foreground">200.000 VNĐ/ THÁNG</td>
-              </tr>
-              <tr className="border-b border-border hover:bg-muted/50 transition">
-                <td className="py-4 px-6 text-foreground font-semibold">ƯU ĐÃI</td>
-                <td className="py-4 px-6 text-center text-foreground">Miễn phí trải nghiệm năm học 2025-2026</td>
-                <td className="py-4 px-6 text-center text-foreground">Giảm 50% dành cho học sinh các trường đối tác của I-CLC</td>
-              </tr>
+
             </tbody>
           </table>
         </div>
