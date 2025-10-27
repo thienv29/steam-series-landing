@@ -64,8 +64,7 @@ export default function CourseLevels() {
 
   return (
     <section id="courses" className="relative py-20 px-4 bg-background overflow-hidden">
-      <img src="/izzy-graduation.png" alt="Izzy graduation" className="absolute top-10 right-10 w-40 h-auto rotate-12 hidden lg:block" />
-      <img src="/izzy-play-soccer.png" alt="Izzy playing soccer" className="absolute bottom-10 left-10 w-40 h-auto -rotate-12 hidden lg:block" />
+      <img src="/izzy-graduation.png" alt="Izzy graduation" className="absolute top-10 right-10 w-40 h-auto rotate-12 hidden lg:block izzy-pulse" />
       <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-center text-balance">
           5 Cấp độ Học tập

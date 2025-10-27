@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Hero />
+      <CourseLevels />
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Video Giới Thiệu</h2>
@@ -22,12 +23,10 @@ export default function Home() {
             >
               Your browser does not support the video tag.
             </video>
-            <img src="/izzy-use-laptop.png" alt="Izzy using laptop" className="absolute -top-16 -left-48 w-40 h-auto hidden md:block" />
-            <img src="/izzy-like.png" alt="Izzy like" className="absolute -bottom-16 -right-48 w-40 h-auto hidden md:block" />
+            <img src="/izzy-use-laptop.png" alt="Izzy using laptop" className="absolute -top-16 -left-48 w-40 h-auto hidden md:block izzy-bounce" />
           </div>
         </div>
       </section>
-      <CourseLevels />
       <ComparisonTable />
       <EnrollmentForm />
     </main>
