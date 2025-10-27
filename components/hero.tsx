@@ -10,12 +10,12 @@ export default function Hero() {
           học, chơi game tương tác với IZZY, và làm bài trắc nghiệm.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition">
+          <a href="#enrollment" className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition">
             Khám phá ngay
-          </button>
-          <button className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition">
+          </a>
+          <a href="#courses" className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition">
             Tìm hiểu thêm
-          </button>
+          </a>
         </div>
       </div>
     </section>
