@@ -53,7 +53,7 @@ export default function Home() {
         <img
           src='/izzy-graduation.png'
           alt='Izzy graduation'
-          className='absolute -top-1 right-10 w-30 h-auto rotate-12 hidden lg:block izzy-pulse'
+          className='absolute -top-2 right-10 w-30 h-auto rotate-12 hidden lg:block izzy-pulse'
         />
         <div className='container mx-auto px-4 text-center'>
           <h2 className='text-5xl md:text-4xl book-series-title mb-12'>
