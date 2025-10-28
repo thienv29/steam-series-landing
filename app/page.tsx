@@ -36,7 +36,7 @@ export default function Home() {
     window.addEventListener('resize', sendHeight)
 
     return () => {
-      window.removeEventListener('message', handleMessage)
+      window.removeEventListener('message', handleMessage) // Re-adding this for proper cleanup
       window.removeEventListener('resize', sendHeight)
       resizeObserver.disconnect()
       mutationObserver.disconnect()

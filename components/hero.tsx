@@ -4,33 +4,31 @@ import { useCallback, useRef } from "react"
 
 export default function Hero() {
   const scrollToSection = useCallback((sectionId: string) => {
-    console.log(`Attempting to scroll to section: ${sectionId}`)
     const element = document.getElementById(sectionId)
     if (element) {
-      console.log('Element found:', element)
       const rect = element.getBoundingClientRect()
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY
       const targetTop = scrollTop + rect.top
-      console.log(`Calculated targetTop: ${targetTop}`)
 
       // Send message to parent for scrolling
-      const message = {
+      window.parent.postMessage({
         type: 'scrollTo',
-        scrollTop: targetTop,
-      }
-      console.log('Sending message to parent:', message)
-      window.parent.postMessage(message, '*')
+        scrollTop: targetTop
+      }, '*')
 
       // Fallback for direct scrolling
-      console.log('Executing fallback scroll.')
       window.scrollTo({
         top: targetTop,
-        behavior: 'smooth',
+        behavior: 'smooth'
       })
-    } else {
-      console.error(`Element with ID "${sectionId}" not found.`)
     }
   }, [])
+
+  const handleButtonClick = useCallback((sectionId: string, event: React.MouseEvent | React.TouchEvent) => {
+    // Prevent default to avoid interference
+    event.preventDefault()
+    scrollToSection(sectionId)
+  }, [scrollToSection])
 
   return (
     <section className="bg-white py-20 px-4">
@@ -44,14 +42,16 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             type="button"
-            onClick={() => scrollToSection('enrollment')}
+            role="button"
+            onClick={(e) => handleButtonClick("enrollment", e)}
             className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition"
           >
             Khám phá ngay
           </button>
           <button
             type="button"
-            onClick={() => scrollToSection('courses')}
+            role="button"
+            onClick={(e) => handleButtonClick("courses", e)}
             className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition"
           >
             Tìm hiểu thêm
