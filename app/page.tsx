@@ -7,40 +7,20 @@ import EnrollmentForm from '@/components/enrollment-form'
 
 export default function Home() {
   useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      console.log('Iframe received message:', event.data, 'from origin:', event.origin);
-      if (event.data.type === 'scrollTo') {
-        window.scrollTo({
-          top: event.data.scrollTop,
-          behavior: 'smooth',
-        })
-        console.log('Iframe scrolled to:', event.data.scrollTop);
-      }
-    }
-
-    window.addEventListener('message', handleMessage)
-
     const sendHeight = () => {
-      const height = document.body.scrollHeight // Changed to document.body.scrollHeight for potentially better mobile compatibility
-      const message = { type: 'adjustIframeHeight', height };
-      window.parent.postMessage(message, '*');
-      console.log('Iframe sent message to parent:', message, 'with target origin: *');
+      const height = document.body.scrollHeight
+      window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
     }
 
-    sendHeight()
-
-    // Resize events
+    // Tự động cập nhật chiều cao iframe
     const resizeObserver = new ResizeObserver(sendHeight)
     resizeObserver.observe(document.documentElement)
-
-    // DOM change events
     const mutationObserver = new MutationObserver(sendHeight)
     mutationObserver.observe(document.body, { childList: true, subtree: true })
-
     window.addEventListener('resize', sendHeight)
+    sendHeight()
 
     return () => {
-      window.removeEventListener('message', handleMessage) // Re-adding this for proper cleanup
       window.removeEventListener('resize', sendHeight)
       resizeObserver.disconnect()
       mutationObserver.disconnect()
@@ -48,11 +28,11 @@ export default function Home() {
   }, [])
 
   return (
-    <main className='min-h-screen bg-white overflow-auto touch-pan-y'>
+    <main className='min-h-screen bg-white touch-pan-y'>
       <Hero />
       <section
         id='courses'
-        className='relative py-8 md:py-12 bg-white  overflow-hidden'
+        className='relative py-8 md:py-12 bg-white overflow-hidden'
       >
         <img
           src='/izzy-graduation.png'
@@ -66,6 +46,7 @@ export default function Home() {
           <BookCards />
         </div>
       </section>
+
       <section className='py-12 md:py-20'>
         <div className='container mx-auto px-4'>
           <h2 className='text-3xl md:text-4xl font-bold text-center mb-8'>
@@ -80,9 +61,7 @@ export default function Home() {
               loop
               muted
               playsInline
-            >
-              Your browser does not support the video tag.
-            </video>
+            />
             <img
               src='/izzy-use-laptop.png'
               alt='Izzy using laptop'
@@ -91,6 +70,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <ComparisonTable />
       <section id='enrollment'>
         <EnrollmentForm />
