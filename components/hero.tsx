@@ -91,8 +91,8 @@ export default function Hero() {
   )
 
   return (
-    <section className='bg-white py-20 px-4'>
-      <div className='max-w-6xl mx-auto text-center'>
+    <section className='relative bg-white py-20 px-4 overflow-hidden'>
+      <div className='max-w-6xl mx-auto text-center relative z-10'>
         <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance'>
           Học Tiếng Anh Toán - Khoa học thực nghiệm theo định hướng STEAM
         </h2>

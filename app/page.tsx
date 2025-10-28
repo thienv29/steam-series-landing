@@ -64,6 +64,11 @@ export default function Home() {
         className='scroll-mt-24 md:scroll-mt-28 relative py-8 md:py-12 bg-white overflow-hidden'
       >
         <div className='container mx-auto px-4 text-center'>
+          <img
+            src='/izzy-graduation.png'
+            alt='Izzy graduation'
+            className='absolute -top-2 right-10 w-30 h-auto rotate-12 hidden lg:block izzy-pulse'
+          />
           <h2 className='text-5xl md:text-4xl book-series-title mb-12'>
             STEAM SERIES FUN WITH MATH - FUN WITH SCIENCE
           </h2>
@@ -85,6 +90,11 @@ export default function Home() {
               loop
               muted
               playsInline
+            />
+            <img
+              src='/izzy-use-laptop.png'
+              alt='Izzy using laptop'
+              className='absolute -top-16 -left-48 w-40 h-auto hidden md:block izzy-bounce'
             />
           </div>
         </div>
