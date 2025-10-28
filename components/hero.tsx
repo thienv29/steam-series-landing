@@ -4,26 +4,31 @@ import { useCallback, useRef } from "react"
 
 export default function Hero() {
   const scrollToSection = useCallback((sectionId: string) => {
+    console.log(`Attempting to scroll to section: ${sectionId}`)
     const element = document.getElementById(sectionId)
     if (element) {
+      console.log('Element found:', element)
       const rect = element.getBoundingClientRect()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
       const targetTop = scrollTop + rect.top
+      console.log(`Calculated targetTop: ${targetTop}`)
 
       // Send message to parent for scrolling
-      window.parent.postMessage(
-        {
-          type: 'scrollTo',
-          scrollTop: targetTop,
-        },
-        '*'
-      )
+      const message = {
+        type: 'scrollTo',
+        scrollTop: targetTop,
+      }
+      console.log('Sending message to parent:', message)
+      window.parent.postMessage(message, '*')
 
       // Fallback for direct scrolling
+      console.log('Executing fallback scroll.')
       window.scrollTo({
         top: targetTop,
         behavior: 'smooth',
       })
+    } else {
+      console.error(`Element with ID "${sectionId}" not found.`)
     }
   }, [])
 
