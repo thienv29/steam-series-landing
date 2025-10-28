@@ -7,23 +7,52 @@ import EnrollmentForm from '@/components/enrollment-form'
 
 export default function Home() {
   useEffect(() => {
+    const getDocHeight = () =>
+      Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+      )
+
+    // throttle bằng rAF + setTimeout để đỡ spam trên mobile
+    let ticking = false
+    let timer: any = null
     const sendHeight = () => {
-      const height = document.body.scrollHeight
-      window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
+      if (ticking) return
+      ticking = true
+      cancelAnimationFrame(timer)
+      timer = requestAnimationFrame(() => {
+        const height = getDocHeight()
+        window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
+        ticking = false
+      })
     }
 
-    // Tự động cập nhật chiều cao iframe
-    const resizeObserver = new ResizeObserver(sendHeight)
-    resizeObserver.observe(document.documentElement)
-    const mutationObserver = new MutationObserver(sendHeight)
-    mutationObserver.observe(document.body, { childList: true, subtree: true })
-    window.addEventListener('resize', sendHeight)
+    // Gửi ngay khi mount
     sendHeight()
 
+    // Lắng nghe scroll (QUAN TRỌNG CHO MOBILE)
+    window.addEventListener('scroll', sendHeight, { passive: true })
+    // Khi viewport đổi (xoay màn hình)
+    window.addEventListener('orientationchange', sendHeight)
+    window.addEventListener('resize', sendHeight)
+
+    // Theo dõi thay đổi kích thước/nội dung
+    const ro = new ResizeObserver(sendHeight)
+    ro.observe(document.documentElement)
+    const mo = new MutationObserver(sendHeight)
+    mo.observe(document.body, { childList: true, subtree: true })
+
     return () => {
+      window.removeEventListener('scroll', sendHeight)
       window.removeEventListener('resize', sendHeight)
-      resizeObserver.disconnect()
-      mutationObserver.disconnect()
+      window.removeEventListener('orientationchange', sendHeight)
+      ro.disconnect()
+      mo.disconnect()
+      cancelAnimationFrame(timer)
     }
   }, [])
 
@@ -32,13 +61,8 @@ export default function Home() {
       <Hero />
       <section
         id='courses'
-        className='relative py-8 md:py-12 bg-white overflow-hidden'
+        className='scroll-mt-24 md:scroll-mt-28 relative py-8 md:py-12 bg-white overflow-hidden'
       >
-        <img
-          src='/izzy-graduation.png'
-          alt='Izzy graduation'
-          className='absolute -top-2 right-10 w-30 h-auto rotate-12 hidden lg:block izzy-pulse'
-        />
         <div className='container mx-auto px-4 text-center'>
           <h2 className='text-5xl md:text-4xl book-series-title mb-12'>
             STEAM SERIES FUN WITH MATH - FUN WITH SCIENCE
@@ -62,17 +86,13 @@ export default function Home() {
               muted
               playsInline
             />
-            <img
-              src='/izzy-use-laptop.png'
-              alt='Izzy using laptop'
-              className='absolute -top-16 -left-48 w-40 h-auto hidden md:block izzy-bounce'
-            />
           </div>
         </div>
       </section>
 
       <ComparisonTable />
-      <section id='enrollment'>
+
+      <section id='enrollment' className='scroll-mt-24 md:scroll-mt-28'>
         <EnrollmentForm />
       </section>
     </main>
