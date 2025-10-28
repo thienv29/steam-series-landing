@@ -35,7 +35,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <main className="min-h-screen bg-white ">
+    <main className="min-h-screen bg-white overflow-auto touch-pan-y">
       <Hero />
       <section id="courses" className="relative py-12 md:py-20 bg-white  overflow-hidden">
         <img src="/izzy-graduation.png" alt="Izzy graduation" className="absolute top-10 right-10 w-40 h-auto rotate-12 hidden lg:block izzy-pulse" />

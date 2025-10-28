@@ -6,35 +6,34 @@ export default function Hero() {
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      // For mobile/iframe compatibility, try different scroll methods
-      const scrollOptions = { behavior: "smooth" as const, block: "start" as const }
-
+      // Method 1: Try direct scrolling with multiple approaches
       try {
-        // First attempt: standard scrollIntoView
-        element.scrollIntoView(scrollOptions)
-      } catch (error) {
-        // Fallback: manual scroll calculation
-        const rect = element.getBoundingClientRect()
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-        const offsetTop = scrollTop + rect.top
-
-        // Check if we can use scroll behavior
-        if ('scrollBehavior' in document.documentElement.style) {
-          window.scrollTo({ top: offsetTop, behavior: 'smooth' })
-        } else {
-          // Simple scroll fallback
-          window.scrollTo(0, offsetTop)
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } catch (e) {
+        try {
+          element.scrollIntoView({ block: 'start' })
+        } catch (e2) {
+          // Fallback: manual scroll calculation
+          const rect = element.getBoundingClientRect()
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY
+          window.scrollTo({
+            top: scrollTop + rect.top,
+            behavior: 'smooth'
+          })
         }
       }
 
-      // Send scroll position to parent iframe for better communication
-      setTimeout(() => {
-        const newHeight = document.documentElement.scrollHeight
-        window.parent.postMessage(
-          { type: 'scrollToSection', height: newHeight, section: sectionId },
-          '*'
-        )
-      }, 500) // Wait for scroll animation
+      // Method 2: Set hash for URL-based scrolling (sometimes works in iframes)
+      if (window.location.hash !== `#${sectionId}`) {
+        window.location.hash = sectionId
+      }
+
+      // Method 3: Send message to parent for scrolling (in case parent can handle it)
+      window.parent.postMessage({
+        type: 'scrollToElement',
+        sectionId: sectionId,
+        elementOffset: element.getBoundingClientRect().top
+      }, '*')
     }
   }, [])
 
