@@ -21,7 +21,7 @@ export default function ComparisonTable() {
       <img
         src='/izzy-front-view.png'
         alt='Izzy front view'
-        className='absolute top-10 left-60 w-40 h-auto -rotate-6 hidden lg:block izzy-sway'
+        className='absolute top-10 left-20 w-40 h-auto -rotate-6 hidden lg:block izzy-sway'
       />
       <div className='max-w-6xl mx-auto relative z-10'>
         <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4 text-center'>
