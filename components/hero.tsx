@@ -3,6 +3,30 @@
 import { useCallback, useRef } from "react"
 
 export default function Hero() {
+  const scrollToSection = useCallback((sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const rect = element.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const targetTop = scrollTop + rect.top
+
+      // Send message to parent for scrolling
+      window.parent.postMessage(
+        {
+          type: 'scrollTo',
+          scrollTop: targetTop,
+        },
+        '*'
+      )
+
+      // Fallback for direct scrolling
+      window.scrollTo({
+        top: targetTop,
+        behavior: 'smooth',
+      })
+    }
+  }, [])
+
   return (
     <section className="bg-white py-20 px-4">
       <div className="max-w-6xl mx-auto text-center">
@@ -13,18 +37,20 @@ export default function Hero() {
           Bộ sách STEAM SERIES FUN WITH MATH – FUN WITH SCIENCE dành cho học sinh Tiểu học – kết hợp giữa sách giấy và nền tảng học trực tuyến Digischool.vn
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#enrollment"
+          <button
+            type="button"
+            onClick={() => scrollToSection('enrollment')}
             className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition"
           >
             Khám phá ngay
-          </a>
-          <a
-            href="#courses"
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection('courses')}
             className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition"
           >
             Tìm hiểu thêm
-          </a>
+          </button>
         </div>
       </div>
     </section>
