@@ -6,44 +6,27 @@ export default function Hero() {
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      // Method 1: Try direct scrolling with multiple approaches
-      try {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      } catch (e) {
-        try {
-          element.scrollIntoView({ block: 'start' })
-        } catch (e2) {
-          // Fallback: manual scroll calculation
-          const rect = element.getBoundingClientRect()
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY
-          window.scrollTo({
-            top: scrollTop + rect.top,
-            behavior: 'smooth'
-          })
-        }
-      }
+      const rect = element.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY
+      const targetTop = scrollTop + rect.top
 
-      // Method 2: Set hash for URL-based scrolling (sometimes works in iframes)
-      if (window.location.hash !== `#${sectionId}`) {
-        window.location.hash = sectionId
-      }
-
-      // Method 3: Send message to parent for scrolling (in case parent can handle it)
+      // Send message to parent for scrolling
       window.parent.postMessage({
-        type: 'scrollToElement',
-        sectionId: sectionId,
-        elementOffset: element.getBoundingClientRect().top
+        type: 'scrollTo',
+        scrollTop: targetTop
       }, '*')
+
+      // Fallback for direct scrolling
+      window.scrollTo({
+        top: targetTop,
+        behavior: 'smooth'
+      })
     }
   }, [])
 
   const handleButtonClick = useCallback((sectionId: string, event: React.MouseEvent | React.TouchEvent) => {
     // Prevent default to avoid interference
     event.preventDefault()
-
-    // On mobile, also prevent propagation to ensure iframe focus
-    event.stopPropagation()
-
     scrollToSection(sectionId)
   }, [scrollToSection])
 
@@ -61,7 +44,6 @@ export default function Hero() {
             type="button"
             role="button"
             onClick={(e) => handleButtonClick("enrollment", e)}
-            onTouchEnd={(e) => handleButtonClick("enrollment", e)}
             className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition"
           >
             Khám phá ngay
@@ -70,7 +52,6 @@ export default function Hero() {
             type="button"
             role="button"
             onClick={(e) => handleButtonClick("courses", e)}
-            onTouchEnd={(e) => handleButtonClick("courses", e)}
             className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition"
           >
             Tìm hiểu thêm

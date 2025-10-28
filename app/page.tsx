@@ -7,6 +7,17 @@ import EnrollmentForm from "@/components/enrollment-form"
 
 export default function Home() {
 useEffect(() => {
+  const handleMessage = (event: MessageEvent) => {
+    if (event.data.type === 'scrollTo') {
+      window.scrollTo({
+        top: event.data.scrollTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  window.addEventListener('message', handleMessage);
+
   const sendHeight = () => {
     const height = document.documentElement.scrollHeight;
     window.parent.postMessage(
@@ -28,6 +39,7 @@ useEffect(() => {
   window.addEventListener('resize', sendHeight);
 
   return () => {
+    window.removeEventListener('message', handleMessage);
     window.removeEventListener('resize', sendHeight);
     resizeObserver.disconnect();
     mutationObserver.disconnect();
@@ -64,7 +76,9 @@ useEffect(() => {
         </div>
       </section>
       <ComparisonTable />
-      <EnrollmentForm />
+      <section id="enrollment">
+        <EnrollmentForm />
+      </section>
     </main>
   )
 }
