@@ -101,7 +101,7 @@ export default function Hero() {
           sinh Tiểu học – kết hợp giữa sách giấy và nền tảng học trực tuyến
           Digischool.vn
         </p>
-        <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+        <div className='hidden sm:flex flex-col sm:flex-row gap-4 justify-center'>
           <a
             href='#enrollment'
             onClick={(e) => handleButtonClick('enrollment', e)}
