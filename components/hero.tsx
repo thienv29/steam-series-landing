@@ -11,16 +11,21 @@ export default function Hero() {
       const targetTop = scrollTop + rect.top
 
       // Send message to parent for scrolling
-      window.parent.postMessage({
+      const message = {
         type: 'scrollTo',
         scrollTop: targetTop
-      }, '*')
+      };
+      window.parent.postMessage(message, '*');
+      console.log('Hero component sent message to parent:', message, 'with target origin: *');
 
       // Fallback for direct scrolling
       window.scrollTo({
         top: targetTop,
         behavior: 'smooth'
       })
+      console.log('Hero component executed fallback scroll to:', targetTop);
+    } else {
+      console.error(`Element with ID "${sectionId}" not found in Hero component.`);
     }
   }, [])
 

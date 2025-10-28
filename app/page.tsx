@@ -8,11 +8,13 @@ import EnrollmentForm from '@/components/enrollment-form'
 export default function Home() {
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
+      console.log('Iframe received message:', event.data, 'from origin:', event.origin);
       if (event.data.type === 'scrollTo') {
         window.scrollTo({
           top: event.data.scrollTop,
           behavior: 'smooth',
         })
+        console.log('Iframe scrolled to:', event.data.scrollTop);
       }
     }
 
@@ -20,7 +22,9 @@ export default function Home() {
 
     const sendHeight = () => {
       const height = document.body.scrollHeight // Changed to document.body.scrollHeight for potentially better mobile compatibility
-      window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
+      const message = { type: 'adjustIframeHeight', height };
+      window.parent.postMessage(message, '*');
+      console.log('Iframe sent message to parent:', message, 'with target origin: *');
     }
 
     sendHeight()
