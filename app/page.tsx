@@ -19,7 +19,7 @@ export default function Home() {
     window.addEventListener('message', handleMessage)
 
     const sendHeight = () => {
-      const height = document.documentElement.scrollHeight
+      const height = document.body.scrollHeight // Changed to document.body.scrollHeight for potentially better mobile compatibility
       window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
     }
 
