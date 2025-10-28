@@ -17,39 +17,48 @@ export default function Home() {
         document.documentElement.clientHeight
       )
 
-    // Chỉ gửi khi thật sự cần: mount, resize, mutation. KHÔNG gửi theo scroll nữa.
+    // throttle bằng rAF + setTimeout để đỡ spam trên mobile
+    let ticking = false
+    let timer: any = null
     const sendHeight = () => {
-      const base = getDocHeight()
-      const buffer = 200 // chống “cụt” do thanh trình duyệt mobile/animation
-      const height = Math.max(base, window.innerHeight) + buffer
-      window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
+      if (ticking) return
+      ticking = true
+      cancelAnimationFrame(timer)
+      timer = requestAnimationFrame(() => {
+        const height = getDocHeight()
+        window.parent.postMessage({ type: 'adjustIframeHeight', height }, '*')
+        ticking = false
+      })
     }
 
     // Gửi ngay khi mount
     sendHeight()
 
-    // Gửi khi viewport đổi/rotate
+    // Lắng nghe scroll (QUAN TRỌNG CHO MOBILE)
+    window.addEventListener('scroll', sendHeight, { passive: true })
+    // Khi viewport đổi (xoay màn hình)
     window.addEventListener('orientationchange', sendHeight)
     window.addEventListener('resize', sendHeight)
 
-    // Theo dõi thay đổi DOM
+    // Theo dõi thay đổi kích thước/nội dung
     const ro = new ResizeObserver(sendHeight)
     ro.observe(document.documentElement)
     const mo = new MutationObserver(sendHeight)
     mo.observe(document.body, { childList: true, subtree: true })
 
     return () => {
+      window.removeEventListener('scroll', sendHeight)
       window.removeEventListener('resize', sendHeight)
       window.removeEventListener('orientationchange', sendHeight)
       ro.disconnect()
       mo.disconnect()
+      cancelAnimationFrame(timer)
     }
   }, [])
 
   return (
     <main className='min-h-screen bg-white touch-pan-y'>
       <Hero />
-
       <section
         id='courses'
         className='scroll-mt-24 md:scroll-mt-28 relative py-8 md:py-12 bg-white overflow-hidden'
