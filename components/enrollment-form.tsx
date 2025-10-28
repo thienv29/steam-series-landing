@@ -40,11 +40,13 @@ export default function EnrollmentForm() {
       <div className='max-w-6xl mx-auto relative z-10'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16'>
           {/* Left side - Decorative content */}
-          <div className='space-y-8'>
+          <div className='space-y-10'>
             <div>
-              <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance'>
-                Bắt đầu hành trình học tập cùng <br /> TEAM SERIES FUN WITH MATH
-                – FUN WITH SCIENCE
+              <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance leading-tight'>
+                Bắt đầu hành trình học tập cùng <br />
+                <span className='text-purple-500'>
+                  TEAM SERIES FUN WITH MATH – FUN WITH SCIENCE
+                </span>
               </h2>
             </div>
 

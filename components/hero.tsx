@@ -6,29 +6,11 @@ export default function Hero() {
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      const rect = element.getBoundingClientRect()
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY
-      const targetTop = scrollTop + rect.top
-
-      // Send message to parent for scrolling
-      window.parent.postMessage({
-        type: 'scrollTo',
-        scrollTop: targetTop
-      }, '*')
-
-      // Fallback for direct scrolling
-      window.scrollTo({
-        top: targetTop,
-        behavior: 'smooth'
+      element.scrollIntoView({
+        behavior: 'smooth',
       })
     }
   }, [])
-
-  const handleButtonClick = useCallback((sectionId: string, event: React.MouseEvent | React.TouchEvent) => {
-    // Prevent default to avoid interference
-    event.preventDefault()
-    scrollToSection(sectionId)
-  }, [scrollToSection])
 
   return (
     <section className="bg-white py-20 px-4">
@@ -43,7 +25,7 @@ export default function Hero() {
           <button
             type="button"
             role="button"
-            onClick={(e) => handleButtonClick("enrollment", e)}
+            onClick={() => scrollToSection("enrollment")}
             className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition"
           >
             Khám phá ngay
@@ -51,7 +33,7 @@ export default function Hero() {
           <button
             type="button"
             role="button"
-            onClick={(e) => handleButtonClick("courses", e)}
+            onClick={() => scrollToSection("courses")}
             className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/5 transition"
           >
             Tìm hiểu thêm
