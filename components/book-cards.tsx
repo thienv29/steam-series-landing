@@ -5,31 +5,31 @@ const mathBooks = [
     id: 1,
     image: '/bo-sach/math-1.jpg',
     title: 'Math Book 1',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-1.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-math-1.pdf',
   },
   {
     id: 2,
     image: '/bo-sach/math-2.jpg',
     title: 'Math Book 2',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-2.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-math-2.pdf',
   },
   {
     id: 3,
     image: '/bo-sach/math-3.jpg',
     title: 'Math Book 3',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-3.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-math-3.pdf',
   },
   {
     id: 4,
     image: '/bo-sach/math-4.jpg',
     title: 'Math Book 4',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-4.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-math-4.pdf',
   },
   {
     id: 5,
     image: '/bo-sach/math-5.jpg',
     title: 'Math Book 5',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-5.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-math-5.pdf',
   },
 ]
 
@@ -38,31 +38,31 @@ const scienceBooks = [
     id: 1,
     image: '/bo-sach/science-1.jpg',
     title: 'Science Book 1',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-1wtm.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-science-1wtm.pdf',
   },
   {
     id: 2,
     image: '/bo-sach/science-2.jpg',
     title: 'Science Book 2',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-2wtm.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-science-2wtm.pdf',
   },
   {
     id: 3,
     image: '/bo-sach/science-3.jpg',
     title: 'Science Book 3',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-3wtm.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-science-3wtm.pdf',
   },
   {
     id: 4,
     image: '/bo-sach/science-4.jpg',
     title: 'Science Book 4',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-4wtm.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-science-4wtm.pdf',
   },
   {
     id: 5,
     image: '/bo-sach/science-5.jpg',
     title: 'Science Book 5',
-    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-5wtm.pdf',
+    documentUrl: '/pdf-view/steam-series-fun-with-science-5wtm.pdf',
   },
 ]
 
@@ -89,7 +89,7 @@ const BookCards = () => {
               {/* Hover effect overlay */}
               <div className='absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4'>
                 <a
-                  href={book.documentUrl+'#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&zoom=page-fit'}
+                  href={book.documentUrl}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-primary text-primary-foreground px-4 py-2 rounded-md text-center transform transition-all duration-300 hover:bg-primary/90'
