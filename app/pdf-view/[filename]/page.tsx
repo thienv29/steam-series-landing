@@ -167,7 +167,7 @@ export default function PDFViewPage({ params }: Props) {
         <div className="text-center">
           <p className="text-red-500 text-lg mb-4">{error}</p>
           <button
-            onClick={() => window.history.back()}
+            onClick={() => window.close()}
             className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
           >
             Quay lại
@@ -212,7 +212,7 @@ export default function PDFViewPage({ params }: Props) {
         <div className="flex items-center justify-between bg-white border-b px-4 py-2 shadow-sm">
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => window.history.back()}
+              onClick={() => window.close()}
               className="px-3 py-1 text-sm bg-gray-100 hover:bg-gray-200 rounded transition-colors"
             >
               ← Quay lại
