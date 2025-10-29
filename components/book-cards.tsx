@@ -88,14 +88,17 @@ const BookCards = () => {
               </div>
               {/* Hover effect overlay */}
               <div className='absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4'>
-                <a
-                  href={book.documentUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                <button
+                  onClick={() => {
+                    window.parent.postMessage({
+                      type: 'redirectParent',
+                      url: window.location.origin + book.documentUrl
+                    }, '*');
+                  }}
                   className='bg-primary text-primary-foreground px-4 py-2 rounded-md text-center transform transition-all duration-300 hover:bg-primary/90'
                 >
                   Xem tài liệu mẫu
-                </a>
+                </button>
               </div>
             </div>
           ))}
@@ -121,14 +124,17 @@ const BookCards = () => {
               </div>
               {/* Hover effect overlay */}
               <div className='absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4'>
-                <a
-                  href={book.documentUrl}
-                  target='_blank'
-                  rel='noopener noreferrer'
+                <button
+                  onClick={() => {
+                    window.parent.postMessage({
+                      type: 'redirectParent',
+                      url: window.location.origin + book.documentUrl
+                    }, '*');
+                  }}
                   className='bg-primary text-primary-foreground px-4 py-2 rounded-md text-center transform transition-all duration-300 hover:bg-primary/90'
                 >
                   Xem tài liệu mẫu
-                </a>
+                </button>
               </div>
             </div>
           ))}
