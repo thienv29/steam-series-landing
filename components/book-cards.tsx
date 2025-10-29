@@ -5,31 +5,31 @@ const mathBooks = [
     id: 1,
     image: '/bo-sach/math-1.jpg',
     title: 'Math Book 1',
-    documentUrl: 'bo-sach/math-1.jpg',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-1.pdf',
   },
   {
     id: 2,
     image: '/bo-sach/math-2.jpg',
     title: 'Math Book 2',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-2.pdf',
   },
   {
     id: 3,
     image: '/bo-sach/math-3.jpg',
     title: 'Math Book 3',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-3.pdf',
   },
   {
     id: 4,
     image: '/bo-sach/math-4.jpg',
     title: 'Math Book 4',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-4.pdf',
   },
   {
     id: 5,
     image: '/bo-sach/math-5.jpg',
     title: 'Math Book 5',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-math-5.pdf',
   },
 ]
 
@@ -38,31 +38,31 @@ const scienceBooks = [
     id: 1,
     image: '/bo-sach/science-1.jpg',
     title: 'Science Book 1',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-1wtm.pdf',
   },
   {
     id: 2,
     image: '/bo-sach/science-2.jpg',
     title: 'Science Book 2',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-2wtm.pdf',
   },
   {
     id: 3,
     image: '/bo-sach/science-3.jpg',
     title: 'Science Book 3',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-3wtm.pdf',
   },
   {
     id: 4,
     image: '/bo-sach/science-4.jpg',
     title: 'Science Book 4',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-4wtm.pdf',
   },
   {
     id: 5,
     image: '/bo-sach/science-5.jpg',
     title: 'Science Book 5',
-    documentUrl: '#',
+    documentUrl: 'https://digischool.vn/uploads/tai-lieu-public/sach-demo/steam-series-fun-with-science-5wtm.pdf',
   },
 ]
 
