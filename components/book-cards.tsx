@@ -89,7 +89,7 @@ const BookCards = () => {
               {/* Hover effect overlay */}
               <div className='absolute inset-0 bg-black/40 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4'>
                 <a
-                  href={book.documentUrl}
+                  href={book.documentUrl+'#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&zoom=page-fit'}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='bg-primary text-primary-foreground px-4 py-2 rounded-md text-center transform transition-all duration-300 hover:bg-primary/90'
