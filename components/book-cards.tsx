@@ -91,7 +91,7 @@ const BookCards = () => {
                 <button
                   onClick={() => {
                     window.parent.postMessage({
-                      type: 'redirectParent',
+                      type: 'redirectParent_newtab',
                       url: window.location.origin + book.documentUrl
                     }, '*');
                   }}
@@ -127,7 +127,7 @@ const BookCards = () => {
                 <button
                   onClick={() => {
                     window.parent.postMessage({
-                      type: 'redirectParent',
+                      type: 'redirectParent_newtab',
                       url: window.location.origin + book.documentUrl
                     }, '*');
                   }}
