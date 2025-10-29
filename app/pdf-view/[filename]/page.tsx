@@ -10,11 +10,11 @@ const IMAGE_FOLDER_MAP: Record<string, string> = {
   'steam-series-fun-with-math-3.pdf': 'steam-series-fun-with-math-3',
   'steam-series-fun-with-math-4.pdf': 'steam-series-fun-with-math-4',
   'steam-series-fun-with-math-5.pdf': 'steam-series-fun-with-math-5',
-  'steam-series-fun-with-science-1wtm.pdf': 'steam-series-fun-with-science-1',
-  'steam-series-fun-with-science-2wtm.pdf': 'steam-series-fun-with-science-2',
-  'steam-series-fun-with-science-3wtm.pdf': 'steam-series-fun-with-science-3',
-  'steam-series-fun-with-science-4wtm.pdf': 'steam-series-fun-with-science-4',
-  'steam-series-fun-with-science-5wtm.pdf': 'steam-series-fun-with-science-5',
+  'steam-series-fun-with-science-1wtm.pdf': 'steam-series-fun-with-science-1wtm',
+  'steam-series-fun-with-science-2wtm.pdf': 'steam-series-fun-with-science-2wtm',
+  'steam-series-fun-with-science-3wtm.pdf': 'steam-series-fun-with-science-3wtm',
+  'steam-series-fun-with-science-4wtm.pdf': 'steam-series-fun-with-science-4wtm',
+  'steam-series-fun-with-science-5wtm.pdf': 'steam-series-fun-with-science-5wtm',
 };
 
 interface Props {
