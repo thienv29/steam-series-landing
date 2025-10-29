@@ -41,10 +41,11 @@ export default function PDFViewPage({ params }: Props) {
 
   if (loading) {
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-white">
+      <div className="w-full h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
-          <p className="text-lg text-gray-600">Đang tải tài liệu...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-xl text-gray-700 mb-2">Đang tải tài liệu PDF</p>
+          <p className="text-sm text-gray-500">Có thể mất vài giây do dung lượng tài liệu lớn</p>
         </div>
       </div>
     );
