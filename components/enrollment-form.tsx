@@ -45,7 +45,7 @@ export default function EnrollmentForm() {
               <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance leading-tight'>
                 Bắt đầu hành trình học tập cùng <br />
                 <span className='text-purple-500'>
-                  TEAM SERIES FUN WITH MATH – FUN WITH SCIENCE
+                  STEAM SERIES FUN WITH MATH – FUN WITH SCIENCE
                 </span>
               </h2>
             </div>
