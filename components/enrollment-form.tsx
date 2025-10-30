@@ -42,24 +42,25 @@ export default function EnrollmentForm() {
           {/* Left side - Decorative content */}
           <div className='space-y-10'>
             <div>
-              <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance leading-tight'>
-                Bắt đầu hành trình học tập cùng <br />
-                <span className='text-purple-500'>
+              <span className="inline-block bg-purple-100 text-purple-700 font-semibold px-3 py-1 rounded-full text-sm mb-4">
+  Bắt đầu hành trình học tập cùng
+</span>
+              <br />
+              <h2 className='text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance leading-tight text-purple-500'>
                   STEAM SERIES FUN WITH MATH – FUN WITH SCIENCE
-                </span>
-              </h2>
+                </h2>
             </div>
 
             {/* Feature highlights */}
             <div className='space-y-4'>
               <div className='flex gap-4 items-start'>
                 <div className='flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center'>
-                  <BookOpen className='w-6 h-6 text-primary' />
+                  <BookOpen className='w-6 h-6 text-purple-500' />
                 </div>
                 <div>
-                  <h3 className='font-semibold text-foreground mb-1'>
+                  <span className='font-semibold text-foreground mb-1'>
                     Sách giáo khoa chất lượng
-                  </h3>
+                  </span>
                   <p className='text-sm text-muted-foreground'>
                     Kết hợp giữa sách giấy và nền tảng học trực tuyến
                   </p>
@@ -71,9 +72,9 @@ export default function EnrollmentForm() {
                   <Sparkles className='w-6 h-6 text-purple-500' />
                 </div>
                 <div>
-                  <h3 className='font-semibold text-foreground mb-1'>
+                  <span className='font-semibold text-foreground mb-1'>
                     Game tương tác với IZZY
-                  </h3>
+                  </span>
                   <p className='text-sm text-muted-foreground'>
                     Học tập vui vẻ thông qua trò chơi giáo dục
                   </p>
