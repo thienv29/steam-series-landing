@@ -8,10 +8,10 @@ export default function EnrollmentForm() {
     // Load Bitrix form script
     const script = document.createElement('script')
     script.src =
-      'https://anhnguiclc.com/upload/crm/form/loader_108_h11dvm.js?' +
+      'https://cdn.bitrix24.vn/b35646573/crm/form/loader_115.js?' +
       ((Date.now() / 180000) | 0)
     script.async = true
-    script.setAttribute('data-b24-form', 'inline/108/h11dvm')
+    script.setAttribute('data-b24-form', 'inline/115/s8w6i7')
     script.setAttribute('data-skip-moving', 'true')
 
     const container = document.getElementById('bitrix-form-container')
