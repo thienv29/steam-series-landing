@@ -283,5 +283,5 @@ html {
 }
 
 .b24-form-sign {
-        display: none;
+        display: none !important;
     }
