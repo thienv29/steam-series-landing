@@ -281,3 +281,7 @@ html {
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+.b24-form-sign {
+        display: none;
+    }
