@@ -9,8 +9,8 @@ export default function ComparisonTable() {
     { name: 'Tài liệu cấu trúc từ vựng', standard: false, advanced: true },
     {
       name: 'Chi phí',
-      standard: '<s>80.000 VNĐ/ THÁNG</s><br />Miễn phí tặng kèm sách',
-      advanced: '100.000 VNĐ/ THÁNG',
+      standard: '<s>88.000 VNĐ/ THÁNG</s><br />Miễn phí tặng kèm sách',
+      advanced: '110.000 VNĐ/ THÁNG',
     },
   ]
   return (
