@@ -2,7 +2,7 @@ import { Check } from 'lucide-react'
 
 export default function ComparisonTable() {
   const features = [
-    { name: 'File sách định dạng PDF', standard: true, advanced: true },
+    { name: 'Ebook tương tác', standard: true, advanced: true },
     { name: 'Game tương tác với chú Sóc IZZY', standard: true, advanced: true },
     { name: 'Bài tập trắc nghiệm', standard: true, advanced: true },
     { name: 'Video', standard: false, advanced: true },
